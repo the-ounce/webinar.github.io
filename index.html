@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентація мого вебінару</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.4;
+    color: #1d1d1f;
+    margin: 0;
+    padding: 40px;
+    background-color: #f5f5f7;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.wrap {
+    flex-basis: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: gray;
+    display: inline-block;
+    margin-top: 0;
+}
+
+.gradient-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.gradient-blue {
+    background-image: linear-gradient(to right top, #1570fe, #2fb6ff);
+}
+
+.gradient-red {
+    background-image: linear-gradient(to right top, #650000, #ff0000);
+}
+
+.separator {
+    color: gray;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 4rem;
+}
+
+.section-header {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    color: #1d1d1f;
+}
+
+.section-description {
+    font-size: 28px;
+    font-weight: 400;
+    color: #86868b;
+}
+
+/* Scroll Container Styles */
+.scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 40px;
+    margin: 0 -40px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 2;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-content {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Block Styles */
+.block {
+    width: 240px;
+    height: 340px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transform-origin: center bottom;
+    overflow: hidden;
+}
+
+.block:hover {
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.16);
+    transform: scale(1.02);
+}
+
+.block-name {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.block-description {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 2;
+}
+
+.block-image {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    height: 45%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1.0;
+    z-index: 1;
+}
+
+/* Block Gradient Styles */
+.block:nth-of-type(1) {
+    background-image: linear-gradient(to bottom, rgba(141, 126, 225, 0.3), rgba(255, 255, 255, 1) 33%);
+}
+
+.block:nth-of-type(2) {
+    background-color: #000000;
+    color: #ffffff;  
+    background-image: linear-gradient(to bottom, rgba(255, 140, 0, 0.3), rgba(0, 0, 0, 1) 33%);
+}
+
+.block:nth-of-type(2) .block-image {
+    opacity: 1.0;
+}
+
+.block:nth-of-type(3) {
+    background-image: linear-gradient(to bottom, rgba(220, 158, 65, 0.3), rgba(255, 255, 255, 1) 33%);
+}
+
+.block:nth-of-type(4) {
+    background-image: linear-gradient(to bottom, rgba(111, 172, 235, 0.3), rgba(255, 255, 255, 1) 33%);
+}
+
+/* Concept Styles */
+.concept-container {
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-content {
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.concept-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Images/stones.png');
+    background-size: 40% auto;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 50px;
+    opacity: 0.20;
+    z-index: 1;
+}
+
+.concept-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    white-space: normal;
+    counter-reset: step-counter;
+}
+
+.concept-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.concept-list li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #0071e3;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Social Block Styles */
+.social-block-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-block {
+    width: 240px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    transform-origin: center bottom;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-block:hover {
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.16);
+    transform: scale(1.02);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 15px;
+}
+
+.social-description {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* Company Links Styles */
+.company-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.careers-block {
+    height: 170px;
+    background-color: #000000;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+    transform-origin: center bottom;
+}
+
+.careers-block:hover {
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.16);
+    transform: scale(1.02);
+}
+
+.social-row {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+}
+
+/* Media Queries */
+@media (min-width: 1024px) {
+    body {
+        padding: 80px;
+    }
+    .scroll-container {
+        margin: 0 -80px;
+        padding: 20px 80px;
+    }
+    h1 {
+        flex-wrap: nowrap;
+    }
+    .wrap {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+    .section-header {
+        font-size: 24px;
+    }
+    .section-description {
+        font-size: 24px;
+    }
+    .scroll-container {
+        margin: 0 -20px;
+        padding: 20px;
+    }
+    .concept-container {
+        margin: 0;
+    }
+    .concept-content {
+        padding: 20px;
+    }
+    .wrap {
+        flex-basis: auto;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1>
+                <span class="nowrap">QADay Вебінар</span>
+                <span class="wrap">про краш-логи</span>
+            </h1>
+            <h2>
+                <span class="gradient-text gradient-blue">Mykyta Havrylenko</span>
+                <span class="separator"> x </span>
+                <span class="gradient-text gradient-red">Readdle</span>
+            </h2>
+        </header>
+
+        <!-- Useful Links Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-title">Корисні Посилання.</span>
+                <span class="section-description">Все, про що ми говорили.</span>
+            </div>
+            <div class="scroll-container">
+                <div class="scroll-content">
+                    <a href="https://developer.apple.com/documentation/xcode/examining-the-fields-in-a-crash-report" class="block">
+                        <div class="block-name">Структура Краш-Логу</div>
+                        <div class="block-description">Дізнайтесь про структуру та її особливості</div>
+                        <div class="block-image" style="background-image: url('Images/crash-log.png');"></div>
+                    </a>
+                    <a href="https://github.com/the-ounce/Symbo" class="block">
+                        <div class="block-name">Symbo</div>
+                        <div class="block-description">Символізуйте macOS та iOS краш-логи. Легко.</div>
+                        <div class="block-image" style="background-image: url('Images/symbo.png');"></div>
+                    </a>
+                    <a href="https://developer.apple.com/documentation/xcode/understanding-the-exception-types-in-a-crash-report" class="block">
+                        <div class="block-name">Винятки</div>
+                        <div class="block-description">Дізнайтеся про різні типи винятків і що вони говорять про краш-лог</div>
+                        <div class="block-image" style="background-image: url('Images/exception.png');"></div>
+                    </a>
+                    <a href="https://developer.apple.com/documentation/xcode/adding-identifiable-symbol-names-to-a-crash-report" class="block">
+                        <div class="block-name"> Символізація</div>
+                        <div class="block-description">Перетворіть адреси памʼяті на зрозумілі імена функцій для ефективного дослідження</div>
+                        <div class="block-image" style="background-image: url('Images/symbolication.png');"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept of Work Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-title">Концепт Роботи.</span>
+                <span class="section-description">Лише у сім кроків.</span>
+            </div>
+            <div class="concept-container">
+                <div class="concept-background"></div>
+                <div class="concept-content">
+                    <ol class="concept-list">
+                        <li>Завантажити dSYM файл</li>
+                        <li>Символізувати краш-лог</li>
+                        <li>Переглянути всі потоки</li>
+                        <li>Визначити свої підказки</li>
+                        <li>Переглянути код та коментарі</li>
+                        <li>Перевірити інші джерела</li>
+                        <li>Згенерувати сценарії</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Social Media Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-title">Мої cоціальні мережі.</span>
+                <span class="section-description">Feel free to connect</span>
+            </div>
+            <div class="scroll-container">
+                <div class="scroll-content">
+                    <div class="social-block-wrapper">
+                        <a href="https://www.linkedin.com/in/mykyta-havrylenko/" class="social-block" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png');"></div>
+                            <div class="social-description">Mykyta Havrylenko</div>
+                        </a>
+                    </div>
+                    <div class="social-block-wrapper">
+                        <a href="https://www.instagram.com/m_havrylenko/" class="social-block" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png');"></div>
+                            <div class="social-description">@m_havrylenko</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Readdle Social Media Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-title">Readdle.</span>
+                <span class="section-description">Підвищуюючи Продуктивність.</span>
+            </div>
+            <div class="company-links">
+                <a href="https://readdle.com/careers" class="careers-block" target="_blank" rel="noopener noreferrer">
+                    <div class="block-name">Кар'єра</div>
+                    <div class="block-description">Захоплюючі можливості для роботи та розвитку</div>
+                </a>
+                <div class="scroll-container">
+                    <div class="scroll-content">
+                        <div class="social-block-wrapper">
+                            <a href="https://www.instagram.com/readdle.team/" class="social-block" target="_blank" rel="noopener noreferrer">
+                                <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png');"></div>
+                                <div class="social-description">@readdle.team ✨</div>
+                            </a>
+                        </div>
+                        <div class="social-block-wrapper">
+                            <a href="https://www.instagram.com/readdle/" class="social-block" target="_blank" rel="noopener noreferrer">
+                                <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2111/2111463.png');"></div>
+                                <div class="social-description">@readdle</div>
+                            </a>
+                        </div>
+                        <div class="social-block-wrapper">
+                            <a href="https://www.linkedin.com/company/readdle/mycompany/" class="social-block" target="_blank" rel="noopener noreferrer">
+                                <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png');"></div>
+                                <div class="social-description">Readdle</div>
+                            </a>
+                        </div>
+                        <div class="social-block-wrapper">
+                            <a href="https://x.com/readdle" class="social-block" target="_blank" rel="noopener noreferrer">
+                                <div class="social-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/5969/5969020.png');"></div>
+                                <div class="social-description">@readdle</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
